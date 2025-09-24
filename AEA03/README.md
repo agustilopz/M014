@@ -1,12 +1,5 @@
 # 📚 API REST – Depuració i Millora
 
-## 👥 Membres del grup
-- Martí Vilàs  
-- Asad Saidi  
-- Gerard Calvo  
-
----
-
 ## 🎯 Objectiu
 Activitat d'ABP de l’assignatura: **Depuració i millora d'una API REST**.  
 L’objectiu és analitzar, corregir i millorar una API bàsica en **Node.js + Express**, amb persistència de dades en un fitxer `db.json`.
@@ -37,5 +30,10 @@ Errors detectats a la API inicial:
 ### 📢 Fase 4: Presentació i discussió
 - Es presenten els **errors detectats**, les **solucions aplicades** i les **dificultats trobades** (sobretot en la validació de dades i el control d’errors).  
 - La solució final és una API estable, amb control d’errors i missatges clars.
+
+## 👥 Membres del grup de discussió
+- Martí Vilàs  
+- Asad Saidi  
+- Gerard Calvo  
 
 ---
