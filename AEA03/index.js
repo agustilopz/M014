@@ -5,6 +5,10 @@ import bodyParser from "body-parser";
 const app = express();
 app.use(bodyParser.json());
 
+app.use(express.static("public"));//carpeta publica pel css
+app.set('view engine','ejs');//Fem servir el motor ejs
+app.set('views', './views'); //carpeta on desem els arxius .ejs
+
 // ----------- FUNCIONS AUXILIARS -----------
 
 // Llegir informació del fitxer db.json
