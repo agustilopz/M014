@@ -28,14 +28,14 @@ const writeData = (data) => {
 };
 
 // Validar llibre abans d’afegir-lo
-const validateBook = (title, author, books) => {
-  if (!title || !author) {
+const validateBook = (name, author, books) => {
+  if (!name || !author) {
     return "Títol i autor són obligatoris";
   }
 
   const exists = books.some(
     (b) =>
-      b.title.toLowerCase() === title.toLowerCase() &&
+      b.name.toLowerCase() === name.toLowerCase() &&
       b.author.toLowerCase() === author.toLowerCase()
   );
 
@@ -74,16 +74,16 @@ app.get("/books/:id", (req, res) => {
 // POST: afegir un llibre nou
 app.post("/books", (req, res) => {
   const data = readData();
-  const { title, author } = req.body;
+  const { name, author } = req.body;
 
-  const validationError = validateBook(title, author, data.books);
+  const validationError = validateBook(name, author, data.books);
   if (validationError) {
     return res.status(400).json({ error: validationError });
   }
 
   const newBook = {
     id: data.books.length ? data.books[data.books.length - 1].id + 1 : 1,
-    title,
+    name,
     author,
   };
 
