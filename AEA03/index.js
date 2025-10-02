@@ -53,7 +53,9 @@ const validateBook = (name, author, books) => {
 // ----------- ENDPOINTS -----------
 
 app.get("/", (req, res) => {
-  res.send("Welcome to my improved API with Node.js");
+  //res.send("Welcome to my improved API with Node.js");
+  //const {user}=req.session
+  res.render('register', user);
 });
 
 // GET: obtenir tots els llibres
@@ -142,3 +144,10 @@ app.use((req, res) => {
 app.listen(3000, () => {
   console.log("Server listening on port 3000");
 });
+
+
+// ENDPOINTS
+
+app.post('/register', (req, res) => {
+  const {username, password} = req.body;
+})
