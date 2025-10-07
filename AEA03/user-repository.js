@@ -16,7 +16,7 @@ export class UserRepository {
         Validation.username(username)
         Validation.password(password)
         // Asegurarse que el username no existe
-        const user = User.findOne({username})
+        const user = await User.findOne({username})
         if(user) throw Error('Username already exists')
 
         const id=crypto.randomUUID()

@@ -27,7 +27,17 @@
 </body>
 
 <script>
-    const qs = el = document.querySelector
+
+
+    const $ = el => document.querySelector(el);
+
+
+    const loginForm = $('#login-form')
+    const loginFormSpan = $('#login-form span')
+    
+
+    const registerForm = $('#register-form');
+    const registerSpan = $('#register-form span')
 
     registerForm?.addEventListener('submit', e => {
         e.preventDefault()
