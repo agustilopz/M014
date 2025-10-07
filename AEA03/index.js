@@ -2,6 +2,11 @@ import express from "express";
 import fs from "fs";
 import bodyParser from "body-parser";
 
+//import methodOverride from 'method-override';
+//import {PORT, SECRET_JWT_KEY} from './config.js'
+import {UserRepository} from './user-repository.js';
+//import jwt from 'jsonwebtoken';
+
 const app = express();
 app.use(bodyParser.json());
 
@@ -55,7 +60,7 @@ const validateBook = (name, author, books) => {
 app.get("/", (req, res) => {
   //res.send("Welcome to my improved API with Node.js");
   //const {user}=req.session
-  res.render('register', user);
+  res.render('register'/*, user */);
 });
 
 // GET: obtenir tots els llibres
@@ -148,6 +153,17 @@ app.listen(3000, () => {
 
 // ENDPOINTS
 
-app.post('/register', (req, res) => {
-  const {username, password} = req.body;
+app.post('/login', async (req, res)=> {
+  
 })
+
+app.post('/register', async (req, res) => {
+  const {username, password} = req.body;
+  console.log(req.body)
+  try {
+    const id = await UserRepository.create({username,password});
+    res.send({id})
+  } catch(error) {
+    res.status(400).send(error.message)
+  }
+});
