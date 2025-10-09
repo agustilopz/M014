@@ -21,19 +21,14 @@ export class UserRepository {
         Validation.username(username);
         Validation.password(password);
 
-        // fa select per 'username' a la db 
-        const user = User.findOne({username}); // {username: username}
+        const user = User.findOne({username}); 
 
-        // comprovo que no hi hagi un usuari amb el mateix 'username'+
         if(user) throw new Error('username already exists');
 
-        // genero id únic amb llibreria crypto
         const id = crypto.randomUUID();
 
-        // encripto contrasenya
         const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
         
-        //creo usuari i el guardo a la db
         User.create({
             _id: id,
             username,

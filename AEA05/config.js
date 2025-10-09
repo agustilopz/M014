@@ -1,5 +1,5 @@
 export const {
     PORT = 3000,
-    SALT_ROUNDS=10, //num de vegades que passes per l'incriptació
-    SECRET_JWT_KEY="itb<3"
+    SALT_ROUNDS=5, 
+    SECRET_JWT_KEY="m014"
 } = process.env

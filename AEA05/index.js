@@ -6,15 +6,13 @@ import { UserRepository } from './user-repository.js';
 
 const app = express();
 
-app.use(express.json()); // processar solicituds en format json
-app.use(express.static("public")); //?
+app.use(express.json()); 
+app.use(express.static("public")); 
 
 app.set('view engine', 'ejs');//Fem servir el motor ejs
 app.set('views', './views'); //carpeta on desem els arxius .ejs
 
-// inici endpoints
 app.get('/', (req, res) => {
-    //res.send('holaaa');
     
     //res.render('login');
     res.render('register');
@@ -23,7 +21,6 @@ app.get('/', (req, res) => {
 
 app.post('/register', async (req, res) => {
     
-    // quan envio formulari, les dades s'envien en el body de la petició
     const { username, password } = req.body;
     console.log(req.method);
 
