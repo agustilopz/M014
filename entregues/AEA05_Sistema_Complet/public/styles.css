@@ -1,91 +1,128 @@
-/* General */
+/* === GENERAL === */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
+    background-color: #fafafa;
+    color: #222;
 }
 
-/* Header */
+/* === HEADER === */
 header {
     background-color: #4CAF50;
-    color: white;
-    padding: 10px;
+    color: #fff;
+    padding: 15px;
     text-align: center;
-    border-radius: 5px;
 }
-p {
-    color:black;
-}
+
 header h1 {
     margin: 0;
+    font-size: 1.6em;
 }
 
-/* Main content */
+/* === MAIN === */
 main {
-    padding: 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
+    padding: 0 15px;
 }
 
-/* Llistat amb estil pijama */
-.product-list {
+/* === MOVIE LIST === */
+.movie-list {
     list-style: none;
     padding: 0;
     margin: 20px 0;
 }
 
-.product-item {
-    padding: 15px;
+.movie-item {
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #fff;
 }
 
-.product-item:nth-child(odd) {
-    background-color: #f4f4f4; /* Color per a les línies imparells */
+.movie-item:nth-child(odd) {
+    background-color: #f5f5f5;
 }
 
-.product-item:nth-child(even) {
-    background-color: #e8e8e8; /* Color per a les línies parells */
+/* === LINKS === */
+a {
+    color: #0078d7;
+    text-decoration: none;
 }
 
-
-/* Form */
-.product-form {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+a:hover {
+    text-decoration: underline;
 }
 
-.product-form label {
+/* === FORMS === */
+form {
+    margin-bottom: 20px;
+}
+
+label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.product-form input {
+input {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
 }
 
-.product-form button {
-    background-color: #0078d7;
+button {
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    border-radius: 4px;
     cursor: pointer;
+    font-size: 1em;
 }
 
-.product-form button:hover {
-    background-color: #005bb5;
+button:hover {
+    background-color: #3e8e41;
 }
+
+/* Delete button */
+button.delete {
+    background-color: #d9534f;
+}
+
+button.delete:hover {
+    background-color: #c9302c;
+}
+
+
+/* Poster */
+.poster {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+.movie-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* === UTILITIES === */
+a.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #555;
+}
+
+a.back-link:hover {
+    color: #000;
+}
+

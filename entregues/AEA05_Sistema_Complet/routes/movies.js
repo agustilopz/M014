@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
 // Route: POST /movies
 router.post('/', (req, res) => {
     const data = readData();
-    const { title, year, country, director, runtime } = req.body;
+    const { title, year, country, director, runtime, poster_path } = req.body;
 
     if (!title || !year || !country || !director || !runtime)
         return res.status(400).send('All fields are required');
