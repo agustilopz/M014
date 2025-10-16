@@ -1,42 +1,84 @@
 {
-    "products": [
+    "movies": [
         {
             "id": 1,
-            "name": "FrancescLaptop",
-            "price": "999.99",
-            "category": "Electronics"
+            "title": "Inception",
+            "year": 2010,
+            "country": "USA",
+            "director": "Christopher Nolan",
+            "runtime": 148
         },
         {
             "id": 2,
-            "name": "Laptop 2",
-            "price": 999.99,
-            "category": "Electronics"
+            "title": "Parasite",
+            "year": 2019,
+            "country": "South Korea",
+            "director": "Bong Joon-ho",
+            "runtime": 132
         },
         {
             "id": 3,
-            "name": "Gaming Laptop",
-            "price": 1199.99,
-            "category": "Electronics"
+            "title": "Amélie",
+            "year": 2001,
+            "country": "France",
+            "director": "Jean-Pierre Jeunet",
+            "runtime": 122
         },
         {
             "id": 4,
-            "name": "Laptop 4",
-            "price": 999.99,
-            "category": "Electronics"
-        }
-    ],
-    "books": [
-        {
-            "id": 1,
-            "name": "Los 7 hábitos de la gente altamente efectiva",
-            "author": "Stephen R. Covey",
-            "year": 1989
+            "title": "Spirited Away",
+            "year": 2001,
+            "country": "Japan",
+            "director": "Hayao Miyazaki",
+            "runtime": 125
         },
         {
-            "id": 2,
-            "name": "Padre rico, padre pobre",
-            "author": "Robert Kiyosaki",
-            "year": 1997
+            "id": 5,
+            "title": "The Godfather",
+            "year": 1972,
+            "country": "USA",
+            "director": "Francis Ford Coppola",
+            "runtime": 175
+        },
+        {
+            "id": 6,
+            "title": "The Dark Knight",
+            "year": 2008,
+            "country": "USA",
+            "director": "Christopher Nolan",
+            "runtime": 152
+        },
+        {
+            "id": 7,
+            "title": "City of God",
+            "year": 2002,
+            "country": "Brazil",
+            "director": "Fernando Meirelles",
+            "runtime": 130
+        },
+        {
+            "id": 8,
+            "title": "Pan's Labyrinth",
+            "year": 2006,
+            "country": "Mexico",
+            "director": "Guillermo del Toro",
+            "runtime": 118
+        },
+        {
+            "id": 9,
+            "title": "The Shawshank Redemption",
+            "year": 1994,
+            "country": "USA",
+            "director": "Frank Darabont",
+            "runtime": 142
+        },
+        {
+            "id": 10,
+            "title": "The Lord of the Rings: The Fellowship of the Ring",
+            "year": 2001,
+            "country": "New Zealand",
+            "director": "Peter Jackson",
+            "runtime": 178
         }
     ]
 }

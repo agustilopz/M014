@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestió de Pel·lícules</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestió de Pel·lícules per <%= user.name %>!</h1>
+        <h2><%- htmlMessage %></h2>
+    </header>
+
+    <main>
+        <section>
+            <h2>Llista de Pel·lícules</h2>
+            <ul class="movie-list">
+                <a href="/movies/new" class="add-button">➕ Afegir nova pel·lícula</a>
+
+                <% data.movies.forEach(movie => { %>
+                    <li class="movie-item">
+                        <strong><%= movie.title %></strong>
+                        <span>Any: <%= movie.year %></span>
+                        <span>País: <%= movie.country %></span>
+                        <span>Director: <%= movie.director %></span>
+                        <span>Durada: <%= movie.runtime %> min</span>
+                        <span><a href="/movies/<%= movie.id %>">Detall pel·lícula</a></span>
+                        <span><a href="/movies/editMovie/<%= movie.id %>">Editar pel·lícula</a></span>
+
+                        <form action="/movies/<%= movie.id %>?_method=DELETE" method="POST" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Segur que vols eliminar aquesta pel·lícula?')">
+                                🗑️ Eliminar
+                            </button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

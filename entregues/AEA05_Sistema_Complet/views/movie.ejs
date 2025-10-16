@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detall de Pel·lícula</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestió de Pel·lícules per <%= user.name %>!</h1>
+        <h2><%- htmlMessage %></h2>
+    </header>
+
+    <main>
+        <section>
+            <h2>Detall de la pel·lícula</h2>
+            <ul class="movie-list">
+                <li class="movie-item">
+                    <strong><%= movie.title %></strong>
+                    <span>Any: <%= movie.year %></span>
+                    <span>País: <%= movie.country %></span>
+                    <span>Director: <%= movie.director %></span>
+                    <span>Durada: <%= movie.runtime %> minuts</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

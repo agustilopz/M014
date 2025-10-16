@@ -1,6 +1,5 @@
 import express from 'express';
-import productRoutes from './routes/products.js';
-import bookRoutes from './routes/books.js';
+import movieRoutes from './routes/movies.js';
 import methodOverride from 'method-override';
 import {PORT, SECRET_JWT_KEY} from './config.js'
 import { UserRepository } from './user-repository.js';
@@ -30,8 +29,7 @@ app.use((req,res,next)=>{
     next() 
 })
 
-app.use('/products', productRoutes);
-app.use('/books', bookRoutes);
+app.use('/movies', movieRoutes);
 
 app.get('/',(req,res)=>{
     const {user}=req.session
