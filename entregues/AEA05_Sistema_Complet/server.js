@@ -87,12 +87,12 @@ app.post('/logout',(req,res)=>{
 app.get('/protected2',(req,res)=>{
     const {user}=req.session
     if (!user) return res.status(403).send('acceso no autorizado')
-    res.render('protected2',user)
+    res.render('protected2',{user})
 });
 app.get('/protected',(req,res)=>{
     const {user}=req.session
     if (!user) return res.status(403).send('acceso no autorizado')
-    res.render('home',user)
+    res.render('home',{user})
 });
 app.listen(PORT,()=>{
     console.log(`Server running on port https://localhost:${PORT}`);

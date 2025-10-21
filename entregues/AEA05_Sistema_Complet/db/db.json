@@ -94,11 +94,83 @@
   "mangas": [
     {
       "id": 1,
-      "title": "dfgdf",
-      "author": "dfgdfg",
+      "title": "One Piece",
+      "author": "Eiichiro Oda",
+      "year": 1997,
+      "genre": "Aventura",
+      "volumes": 101
+    },
+    {
+      "id": 2,
+      "title": "Naruto",
+      "author": "Masashi Kishimoto",
       "year": 1999,
-      "genre": "dstgerd",
-      "volumes": 5
+      "genre": "Acció",
+      "volumes": 72
+    },
+    {
+      "id": 3,
+      "title": "Dragon Ball",
+      "author": "Akira Toriyama",
+      "year": 1984,
+      "genre": "Acció",
+      "volumes": 42
+    },
+    {
+      "id": 4,
+      "title": "Attack on Titan",
+      "author": "Hajime Isayama",
+      "year": 2009,
+      "genre": "Fantasy",
+      "volumes": 34
+    },
+    {
+      "id": 5,
+      "title": "Death Note",
+      "author": "Tsugumi Ohba",
+      "year": 2003,
+      "genre": "Thriller",
+      "volumes": 12
+    },
+    {
+      "id": 6,
+      "title": "Fullmetal Alchemist",
+      "author": "Hiromu Arakawa",
+      "year": 2001,
+      "genre": "Aventura",
+      "volumes": 27
+    },
+    {
+      "id": 7,
+      "title": "Bleach",
+      "author": "Tite Kubo",
+      "year": 2001,
+      "genre": "Acció",
+      "volumes": 74
+    },
+    {
+      "id": 8,
+      "title": "My Hero Academia",
+      "author": "Kohei Horikoshi",
+      "year": 2014,
+      "genre": "Superherois",
+      "volumes": 36
+    },
+    {
+      "id": 9,
+      "title": "Tokyo Ghoul",
+      "author": "Sui Ishida",
+      "year": 2011,
+      "genre": "Horror",
+      "volumes": 14
+    },
+    {
+      "id": 10,
+      "title": "One Punch Man",
+      "author": "ONE",
+      "year": 2009,
+      "genre": "Comèdia",
+      "volumes": 23
     }
   ]
 }

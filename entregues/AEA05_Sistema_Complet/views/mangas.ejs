@@ -6,11 +6,12 @@
   <link rel="stylesheet" href="/nou_css.css">
 </head>
 <body>
+<header>
   <h1>📚 Gestió de Mangas</h1>
   <p>Usuari: <%= user.username %></p>
-  <%= htmlMessage %>
-
+  <p><%- htmlMessage %></p>  <!-- <- nota el - per no escapar -->
   <a href="/mangas/new">➕ Nou manga</a>
+</header>
 
   <table border="1" style="margin-top: 20px;">
     <tr><th>Títol</th><th>Autor</th><th>Any</th><th>Gènere</th><th>Volums</th><th>Accions</th></tr>
