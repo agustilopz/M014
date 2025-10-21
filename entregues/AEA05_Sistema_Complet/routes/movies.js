@@ -1,7 +1,13 @@
 import express from 'express';
 import fs from 'fs';
+import { requireAuth } from '../middleware/auth.js';
+
 
 const router = express.Router();
+
+// Protegeix totes les rutes d'aquest fitxer
+router.use(requireAuth);
+
 
 // Read/write JSON file
 const readData = () => JSON.parse(fs.readFileSync('./db/db.json'));
@@ -69,7 +75,8 @@ router.post('/', (req, res) => {
 
     data.movies.push(newMovie);
     writeData(data);
-    res.json(newMovie);
+   // res.json(newMovie);
+    res.redirect('/movies');
 });
 
 // Route: PUT /movies/:id
@@ -95,7 +102,7 @@ router.delete('/:id', (req, res) => {
 
     data.movies.splice(movieIndex, 1);
     writeData(data);
-    res.json({ message: 'Movie deleted successfully' });
+    //res.json({ message: 'Movie deleted successfully' });
     res.redirect('/movies');
 
 });

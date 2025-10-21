@@ -74,7 +74,8 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ username, password })
+                body: JSON.stringify({ username, password }),
+                credentials: 'include' // Incluir cookies en la solicitud
             })
                 .then(res => {
                     if (res.ok) {
@@ -129,7 +130,8 @@
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                credentials: 'include' // Incluir cookies en la solicitud
             })
                 .then(res => {
                     console.log(res)

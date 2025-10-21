@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Manga</title>
+  <link rel="stylesheet" href="/nou_css.css">
+</head>
+<body>
+  <h1>✏️ Editar Manga: <%= manga.title %></h1>
+  <%= htmlMessage %>
+
+  <form action="/mangas/edit/<%= manga.id %>" method="POST">
+    <label>Títol:</label>
+    <input type="text" name="title" value="<%= manga.title %>" required>
+
+    <label>Autor:</label>
+    <input type="text" name="author" value="<%= manga.author %>" required>
+
+    <label>Any:</label>
+    <input type="number" name="year" value="<%= manga.year %>" required>
+
+    <label>Gènere:</label>
+    <input type="text" name="genre" value="<%= manga.genre %>">
+
+    <label>Volums:</label>
+    <input type="number" name="volumes" value="<%= manga.volumes %>">
+
+    <button type="submit">Desar canvis</button>
+  </form>
+</body>
+</html>

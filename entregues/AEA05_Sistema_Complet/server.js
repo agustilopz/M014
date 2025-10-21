@@ -1,5 +1,6 @@
 import express from 'express';
 import movieRoutes from './routes/movies.js';
+import mangasRoutes from './routes/mangas.js';
 import methodOverride from 'method-override';
 import {PORT, SECRET_JWT_KEY} from './config.js'
 import { UserRepository } from './user-repository.js';
@@ -13,23 +14,31 @@ app.use(express.static("public")); // Càrrega CSS i altres fitxers públics
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+
 app.set('view engine', 'ejs'); // Motor de plantilles
 app.set('views', './views'); // Ubicació de les plantilles
 
 //inicio middleware
 app.use((req,res,next)=>{
+    console.log('🧁 Cookies:', req.cookies);
     const token =req.cookies.access_token
     req.session={user: null}
     try{
         const data=jwt.verify(token,SECRET_JWT_KEY)
         req.session.user=data
+        console.log('✅ Usuari autenticat:', data);
+
     }catch(error){
         req.session.user=null
+                console.log('❌ Error verificant token:', error.message);
+
     }
     next() 
 })
 
 app.use('/movies', movieRoutes);
+app.use('/mangas', mangasRoutes);
+
 
 app.get('/',(req,res)=>{
     const {user}=req.session

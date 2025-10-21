@@ -1,94 +1,104 @@
 {
-    "movies": [
-        {
-            "id": 1,
-            "title": "Inception",
-            "year": 2010,
-            "country": "USA",
-            "director": "Christopher Nolan",
-            "runtime": 148,
-            "poster_path": "https://m.media-amazon.com/images/I/51NbVEuw1HL._AC_.jpg"
-        },
-        {
-            "id": 2,
-            "title": "Parasite",
-            "year": 2019,
-            "country": "South Korea",
-            "director": "Bong Joon-ho",
-            "runtime": 132,
-            "poster_path": "https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg"
-        },
-        {
-            "id": 3,
-            "title": "Amélie",
-            "year": 2001,
-            "country": "France",
-            "director": "Jean-Pierre Jeunet",
-            "runtime": 122,
-            "poster_path": "https://m.media-amazon.com/images/I/81C2wFJ9lpL._AC_SY679_.jpg"
-        },
-        {
-            "id": 4,
-            "title": "Spirited Away",
-            "year": 2001,
-            "country": "Japan",
-            "director": "Hayao Miyazaki",
-            "runtime": 125,
-            "poster_path": "https://m.media-amazon.com/images/I/81EcgXU0YvL._AC_SY679_.jpg"
-        },
-        {
-            "id": 5,
-            "title": "The Godfather",
-            "year": 1972,
-            "country": "USA",
-            "director": "Francis Ford Coppola",
-            "runtime": 175,
-            "poster_path": "https://m.media-amazon.com/images/I/71xZtZVZgPL._AC_SY679_.jpg"
-        },
-        {
-            "id": 6,
-            "title": "The Dark Knight",
-            "year": 2008,
-            "country": "USA",
-            "director": "Christopher Nolan",
-            "runtime": 152,
-            "poster_path": "https://m.media-amazon.com/images/I/51EbJjlYzOL._AC_.jpg"
-        },
-        {
-            "id": 7,
-            "title": "City of God",
-            "year": 2002,
-            "country": "Brazil",
-            "director": "Fernando Meirelles",
-            "runtime": 130,
-            "poster_path": "https://m.media-amazon.com/images/I/91M9wI6iQuL._AC_SY679_.jpg"
-        },
-        {
-            "id": 8,
-            "title": "Pan's Labyrinth",
-            "year": 2006,
-            "country": "Mexico",
-            "director": "Guillermo del Toro",
-            "runtime": 118,
-            "poster_path": "https://m.media-amazon.com/images/I/81xnQgk9+5L._AC_SY679_.jpg"
-        },
-        {
-            "id": 9,
-            "title": "The Shawshank Redemption",
-            "year": 1994,
-            "country": "USA",
-            "director": "Frank Darabont",
-            "runtime": 142,
-            "poster_path": "https://m.media-amazon.com/images/I/519NBNHX5BL._AC_.jpg"
-        },
-        {
-            "id": 10,
-            "title": "The Lord of the Rings: The Fellowship of the Ring",
-            "year": 2001,
-            "country": "New Zealand",
-            "director": "Peter Jackson",
-            "runtime": 178,
-            "poster_path": "https://m.media-amazon.com/images/I/51Qvs9i5a%2BL._AC_.jpg"
-        }
-    ]
+  "movies": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "year": 2010,
+      "country": "USA",
+      "director": "Christopher Nolan",
+      "runtime": 148,
+      "poster_path": "https://m.media-amazon.com/images/I/51NbVEuw1HL._AC_.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Parasite",
+      "year": 2019,
+      "country": "South Korea",
+      "director": "Bong Joon-ho",
+      "runtime": 132,
+      "poster_path": "https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Amélie",
+      "year": 2001,
+      "country": "France",
+      "director": "Jean-Pierre Jeunet",
+      "runtime": 122,
+      "poster_path": "https://m.media-amazon.com/images/I/81C2wFJ9lpL._AC_SY679_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Spirited Away",
+      "year": 2001,
+      "country": "Japan",
+      "director": "Hayao Miyazaki",
+      "runtime": 125,
+      "poster_path": "https://m.media-amazon.com/images/I/81EcgXU0YvL._AC_SY679_.jpg"
+    },
+    {
+      "id": 5,
+      "title": "The Godfather",
+      "year": 1972,
+      "country": "USA",
+      "director": "Francis Ford Coppola",
+      "runtime": 175,
+      "poster_path": "https://m.media-amazon.com/images/I/71xZtZVZgPL._AC_SY679_.jpg"
+    },
+    {
+      "id": 6,
+      "title": "The Dark Knight",
+      "year": 2008,
+      "country": "USA",
+      "director": "Christopher Nolan",
+      "runtime": 152,
+      "poster_path": "https://m.media-amazon.com/images/I/51EbJjlYzOL._AC_.jpg"
+    },
+    {
+      "id": 7,
+      "title": "City of God",
+      "year": 2002,
+      "country": "Brazil",
+      "director": "Fernando Meirelles",
+      "runtime": 130,
+      "poster_path": "https://m.media-amazon.com/images/I/91M9wI6iQuL._AC_SY679_.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Pan's Labyrinth",
+      "year": 2006,
+      "country": "Mexico",
+      "director": "Guillermo del Toro",
+      "runtime": 118,
+      "poster_path": "https://m.media-amazon.com/images/I/81xnQgk9+5L._AC_SY679_.jpg"
+    },
+    {
+      "id": 9,
+      "title": "The Shawshank Redemption",
+      "year": 1994,
+      "country": "USA",
+      "director": "Frank Darabont",
+      "runtime": 142,
+      "poster_path": "https://m.media-amazon.com/images/I/519NBNHX5BL._AC_.jpg"
+    },
+    {
+      "id": 10,
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "year": 2001,
+      "country": "New Zealand",
+      "director": "Peter Jackson",
+      "runtime": 178,
+      "poster_path": "https://m.media-amazon.com/images/I/51Qvs9i5a%2BL._AC_.jpg"
+    }
+  ],
+  "mangas": [
+    {
+      "id": 1,
+      "title": "dfgdf",
+      "author": "dfgdfg",
+      "year": 1999,
+      "genre": "dstgerd",
+      "volumes": 5
+    }
+  ]
 }
