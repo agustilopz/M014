@@ -16,7 +16,7 @@ const writeData = (data) => fs.writeFileSync('./db/db.json', JSON.stringify(data
 // Route: GET /movies
 router.get('/', (req, res) => {
     const user = { name: "Agusti" };
-    const htmlMessage = `<p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
+    const htmlMessage = `
                          <a href="/">Home</a>`;
     const data = readData();
     res.render("movies", { user, data, htmlMessage });
@@ -26,7 +26,6 @@ router.get('/', (req, res) => {
 router.get('/editMovie/:id', (req, res) => {
     const user = { name: "Agusti" };
     const htmlMessage = `
-    <p>Aquest és un text <strong>amb estil</strong> i un enllaç:</p>
     <a href="/movies">Llistat de pel·lícules</a>`;
     
     const data = readData();

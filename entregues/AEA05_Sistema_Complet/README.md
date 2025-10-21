@@ -91,3 +91,7 @@ Aquest projecte és una aplicació web desenvolupada amb **Node.js** i **Express
 ## 5. Dades d’exemple
 Fitxer **`db/db.json`**:
 
+
+## 5. Captures
+Captura de la crida de l'API a API Tester demostrant el correcte funcionament.
+![Captura de la crida de l'API a API Tester](./screenshots/captura_postman.png)
