@@ -1,12 +1,12 @@
 <script setup>
+import AppTea2 from './AppTea2.vue';
 import CounterButton from './components/CounterButton.vue'
+
 </script>
 
 <template>
 
-  <CounterButton />
-  <CounterButton />
-  <CounterButton />
+  <AppTea2 color-selected="handleColorSelected"/>
 
 </template>
 
