@@ -1,11 +1,19 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router'
+import Home from './views/Home.vue'
+import Frameworks from './views/Frameworks.vue'
+import FrameworkDetail from './views/FrameworkDetail.vue'
+
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <nav>
+    <RouterLink to="/">Home</RouterLink> |
+    <RouterLink to="/frameworks">Frameworks</RouterLink>
+  </nav>
+  <RouterView />
+
+    <!--<Home /> -->
 </template>
 
 <style scoped></style>
