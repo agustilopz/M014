@@ -1,8 +1,5 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import Home from './views/Home.vue'
-import Frameworks from './views/Frameworks.vue'
-import FrameworkDetail from './views/FrameworkDetail.vue'
 
 </script>
 
