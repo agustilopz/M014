@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Frameworks from '@/views/Frameworks.vue'
 import FrameworkDetail from '@/views/FrameworkDetail.vue'
+import FrameworkDetail2 from '@/views/FrameworkDetail2.vue'
 import FrameworkVersion from '../views/FrameworkVersion.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,7 +23,7 @@ const router = createRouter({
         {
           path: ':id',
           name: 'frameworkDetail',
-          component: FrameworkDetail,
+          component: FrameworkDetail2,
         },
       ]
     },

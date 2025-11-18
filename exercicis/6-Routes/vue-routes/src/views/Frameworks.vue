@@ -18,5 +18,7 @@ const frameworks = ref([
             <RouterLink :to="`/frameworks/${framework.id}`">{{ framework.name }}</RouterLink>
         </li>
     </ul>
-    <RouterView :key="$route.fullPath"/> <!--Per forçar la recàrrega del component fill quan canvia la ruta  -->
+   <!-- <RouterView :key="$route.fullPath"/>--> <!--Per forçar la recàrrega del component fill quan canvia la ruta  -->
+   <RouterView />
+
 </template>
