@@ -1,5 +1,6 @@
 <script setup>
 import ExempleBasic from './components/ExempleBasic.vue';
+import ProductList from './components/ProductList.vue';
 </script>
 
 <template>
@@ -11,7 +12,8 @@ import ExempleBasic from './components/ExempleBasic.vue';
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <ExempleBasic />
+ <!-- <ExempleBasic /> -->
+  <ProductList />
 </template>
 
 <style scoped>
