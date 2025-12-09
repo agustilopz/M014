@@ -1,19 +1,28 @@
 <script setup>
 import ExempleBasic from './components/ExempleBasic.vue';
 import ProductList from './components/ProductList.vue';
+import { ref } from 'vue';
+import { useFetch } from './composables/useFetch.js';
+
+const cerca = ref("chicken")
+const url =  ref(`https://www.themealdb.com/api/json/v1/1/search.php?s=${cerca.value}`)
+
+const { data, error, loading, fetchData } = useFetch(url);
+
 </script>
 
 <template>
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+   <h1>You did it</h1>
+   <div v-if = "loading">Carregant...</div>
+   <div v-else-if = "error">{{ error }}</div>
+   <div v-else>
+
+    <div v-if="data && data.meals">{{ data }}</div>
+   </div>
   </div>
  <!-- <ExempleBasic /> -->
-  <ProductList />
+ <!-- <ProductList /> -->
 </template>
 
 <style scoped>
