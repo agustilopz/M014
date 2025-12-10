@@ -35,7 +35,7 @@ export function useFetch(url) {
             data.value = await res.json();
             
             // Mostrar les dades a la consola per debugging
-            console.log(data.value);
+            //console.log(data.value);
 
         } catch (err) {
             // Si error: emmagatzemar el missatge d'error
