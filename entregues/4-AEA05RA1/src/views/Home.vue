@@ -32,7 +32,7 @@ const gestionarRecepta = (recepta) => {
    <div v-else-if = "error">{{ error }}</div>
    <div v-else>
 
-    <div v-if="data && data.meals">
+    <div class="grid" v-if="data && data.meals">
     <div v-for="meal in data.meals">
       <MealCard :meal="meal" />
     </div>
