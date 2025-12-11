@@ -10,9 +10,7 @@ const cercaRecepta = () => {
     emit('cercaRecepta', recepta.value)
 }
 
-
 </script>
-
 
 <template>
 
