@@ -5,16 +5,11 @@ import { RouterLink, RouterView } from 'vue-router';
 </script>
 
 <template>
-    <RouterLink to="/">Inici</RouterLink> 
+  <RouterLink to="/">Inici</RouterLink>
 
-  <Home/>
+  <Home />
   <RouterView />
 
 </template>
 
-<style scoped>
-
-</style>
-
-
- 
+<style scoped></style>
