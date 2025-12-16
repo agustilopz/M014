@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestió de Pel·lícules</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Gestió de Pel·lícules per <%= user.name %>!</h1>
+        <h2><%- htmlMessage %></h2>
+    </header>
+
+    <main>
+        <section>
+            <h2>Llista de Pel·lícules</h2>
+            <ul class="movie-list">
+                <a href="/movies/new" class="add-button">➕ Afegir nova pel·lícula</a>
+
+                <% data.movies.forEach(movie=> { %>
+                    <li class="movie-item">
+                        <img src="<%= movie.poster_path %>" alt="<%= movie.title %> poster" class="poster">
+                        <div>
+                            <strong>
+                                <%= movie.title %>
+                            </strong><br>
+                            <span>
+                                <%= movie.year %> - <%= movie.country %>
+                            </span><br>
+                            <span>Director: <%= movie.director %></span><br>
+                            <span>Durada: <%= movie.runtime %> min</span><br>
+                            <!--<a href="/movies/<%= movie.id %>">Detall</a> | -->
+                            <% if (user.name) { %>
+
+                                <a href="/movies/editMovie/<%= movie.id %>">Editar</a>
+                                <form action="/movies/<%= movie.id %>?_method=DELETE" method="POST"
+                                    style="display:inline;">
+                                    <button type="submit" class="delete">Eliminar</button>
+                                </form>
+                                <% } %>
+
+                        </div>
+                    </li>
+                    <% }) %>
+            </ul>
+        </section>
+    </main>
+</body>
+
+</html>

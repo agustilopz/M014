@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afegir Pel·lícula</title>
+    <link rel="stylesheet" href="/nou_css.css">
+</head>
+<body>
+    <header>
+        <h1>Afegir una nova Pel·lícula</h1>
+    </header>
+    
+    <main>
+        <form action="/movies" method="POST">
+            <label for="title">Títol:</label>
+            <input type="text" id="title" name="title" placeholder="Ex: Inception" required>
+
+            <label for="year">Any:</label>
+            <input type="number" id="year" name="year" placeholder="Ex: 2010" required>
+
+            <label for="country">País:</label>
+            <input type="text" id="country" name="country" placeholder="Ex: USA" required>
+
+            <label for="director">Director:</label>
+            <input type="text" id="director" name="director" placeholder="Ex: Christopher Nolan" required>
+
+            <label for="runtime">Durada (minuts):</label>
+            <input type="number" id="runtime" name="runtime" placeholder="Ex: 148" required>
+
+            <label for="poster_path">Poster URL:</label>
+            <input type="url" id="poster_path" name="poster_path" placeholder="https://...">
+
+
+            <button type="submit">Afegir Pel·lícula</button>
+        </form>
+
+        <a href="/movies">Tornar al llistat</a>
+    </main>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edita Pel·lícula</title>
+    <link rel="stylesheet" href="/nou_css.css">
+</head>
+<body>
+    <header>
+        <h1>Editar Pel·lícula: <%= movie.title %></h1>
+    </header>
+    
+    <main>
+        <form action="/movies/<%= movie.id %>?_method=PUT" method="POST">
+            <label for="title">Títol:</label>
+            <input type="text" id="title" name="title" value="<%= movie.title %>" required>
+
+            <label for="year">Any:</label>
+            <input type="number" id="year" name="year" value="<%= movie.year %>" required>
+
+            <label for="country">País:</label>
+            <input type="text" id="country" name="country" value="<%= movie.country %>" required>
+
+            <label for="director">Director:</label>
+            <input type="text" id="director" name="director" value="<%= movie.director %>" required>
+
+            <label for="runtime">Durada (minuts):</label>
+            <input type="number" id="runtime" name="runtime" value="<%= movie.runtime %>" required>
+
+            <label for="poster_path">Poster URL:</label>
+            <input type="url" id="poster_path" name="poster_path" placeholder="https://..." value="<%= movie ? movie.poster_path : '' %>">
+
+
+            <button type="submit">Desar Canvis</button>
+        </form>
+        <a href="/movies">Tornar al llistat</a>
+    </main>
+</body>
+</html>
