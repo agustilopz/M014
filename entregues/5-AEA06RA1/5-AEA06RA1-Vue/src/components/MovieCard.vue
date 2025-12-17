@@ -5,6 +5,10 @@ import { RouterLink, RouterView } from 'vue-router';
 defineProps({
     movie: Object
 })
+const emit = defineEmits(['delete-movie']);
+function deleteMovie(id) {
+    emit('delete-movie', id);
+}
 
 </script>
 
@@ -15,6 +19,7 @@ defineProps({
         <h3>{{ movie.title }}</h3>
         <p>{{ movie.year }} - {{ movie.director }}</p>
         <RouterLink :to="`/editMovie/${movie.id}`">Editar </RouterLink>
+        <button @click="deleteMovie(movie.id)">Eliminar</button>
 
     </div>
 
