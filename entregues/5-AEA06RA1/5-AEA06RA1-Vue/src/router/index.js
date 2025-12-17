@@ -16,6 +16,12 @@ const router = createRouter({
             path: '/editMovie/:idMovie',
             name: 'editMovie',
             component: () => import('../views/editMovie.vue'),
+        },
+
+        {
+            path: '/newMovie',
+            name: 'newMovie',
+            component: () => import('../views/newMovie.vue'),
         }
 
 

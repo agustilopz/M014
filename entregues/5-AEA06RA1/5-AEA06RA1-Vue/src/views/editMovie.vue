@@ -1,7 +1,6 @@
 <template>
 
-  <h1>EDITAR PELI</h1>
-  <!-- <div>
+   <div>
     <header>
       <h1>Editar Pel·lícula: {{ movie.title }}</h1>
     </header>
@@ -25,47 +24,46 @@
         <label for="poster_path">Poster URL:</label>
         <input type="url" id="poster_path" v-model="movie.poster_path" placeholder="https://..." />
 
-        <button type="submit">Desar Canvis</button>
+        <button @click="updateMovie" type="submit">Desar Canvis</button>
       </form>
-      <router-link to="/">Tornar al llistat</router-link>
     </main>
-  </div> -->
+  </div>
 </template>
 
 <script setup>
 
-// import { ref, onMounted } from 'vue'
-// import { useRoute, useRouter } from 'vue-router'
-// import { watch } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { watch } from 'vue'
 
-// const route = useRoute()
-// const router = useRouter()
-// const movie = ref({
-//   title: '',
-//   year: '',
-//   country: '',
-//   director: '',
-//   runtime: '',
-//   poster_path: ''
-// })
+const route = useRoute()
+const router = useRouter()
+const movie = ref({
+  title: '',
+  year: '',
+  country: '',
+  director: '',
+  runtime: '',
+  poster_path: ''
+})
 
 
 
-// onMounted(async () => {
-//   const res = await fetch(`http://localhost:3000/movies/${route.params.idMovie}`, { credentials: 'include' })
-//   const data = await res.json()
-//   if (data.movie) movie.value = data.movie
-// })
+onMounted(async () => {
+  const res = await fetch(`http://localhost:3000/movies/${route.params.idMovie}`, { credentials: 'include' })
+  const data = await res.json()
+  if (data.movie) movie.value = data.movie
+})
 
-// async function updateMovie() {
-//   await fetch(`http://localhost:3000/movies/${route.params.idMovie}`, {
-//     method: 'PUT',
-//     headers: { 'Content-Type': 'application/json' },
-//     credentials: 'include',
-//     body: JSON.stringify(movie.value)
-//   })
-//   router.push('/movies')
-// }
+async function updateMovie() {
+  await fetch(`http://localhost:3000/movies/${route.params.idMovie}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(movie.value)
+  })
+  router.push('/movies')
+}
 
 
 </script>
