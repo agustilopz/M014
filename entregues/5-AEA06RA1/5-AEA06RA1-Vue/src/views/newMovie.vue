@@ -7,22 +7,22 @@
     <main>
       <form @submit.prevent="createMovie">
         <label for="title">Títol:</label>
-        <input type="text" id="title"  required />
+        <input type="text" id="title"  required /><br>
 
         <label for="year">Any:</label>
-        <input type="number" id="year"  required />
+        <input type="number" id="year"  required /><br>
 
         <label for="country">País:</label>
-        <input type="text" id="country"  required />
+        <input type="text" id="country"  required /><br>
 
         <label for="director">Director:</label>
-        <input type="text" id="director"  required />
+        <input type="text" id="director"  required /><br>
 
         <label for="runtime">Durada (minuts):</label>
-        <input type="number" id="runtime" required />
+        <input type="number" id="runtime" required /><br>
 
         <label for="poster_path">Poster URL:</label>
-        <input type="url" id="poster_path"  required />
+        <input type="url" id="poster_path"  required /> <br>
 
         <button @click="createMovie" type="submit">Desar Canvis</button>
       </form>

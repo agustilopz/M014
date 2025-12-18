@@ -7,22 +7,22 @@
     <main>
       <form @submit.prevent="updateMovie">
         <label for="title">Títol:</label>
-        <input type="text" id="title" v-model="movie.title" required />
+        <input type="text" id="title" v-model="movie.title" required /><br>
 
         <label for="year">Any:</label>
-        <input type="number" id="year" v-model="movie.year" required />
+        <input type="number" id="year" v-model="movie.year" required /><br>
 
         <label for="country">País:</label>
-        <input type="text" id="country" v-model="movie.country" required />
+        <input type="text" id="country" v-model="movie.country" required /><br>
 
         <label for="director">Director:</label>
-        <input type="text" id="director" v-model="movie.director" required />
+        <input type="text" id="director" v-model="movie.director" required /><br>
 
         <label for="runtime">Durada (minuts):</label>
-        <input type="number" id="runtime" v-model="movie.runtime" required />
+        <input type="number" id="runtime" v-model="movie.runtime" required /><br>
 
         <label for="poster_path">Poster URL:</label>
-        <input type="url" id="poster_path" v-model="movie.poster_path" placeholder="https://..." />
+        <input type="url" id="poster_path" v-model="movie.poster_path" placeholder="https://..." /><br>
 
         <button @click="updateMovie" type="submit">Desar Canvis</button>
       </form>
