@@ -28,12 +28,7 @@ const active = ref(false);
             @updateCount=""
             @clear=""
           />
-          <CartItem
-            :product="{ name: 'Pineapple Gum', price: 3 }"
-            :count="5"
-            @updateCount=""
-            @clear=""
-          />
+
         </ul>
         <div class="flex justify-end text-2xl mb-5">
           Total: <strong>$40</strong>

@@ -8,7 +8,8 @@ import { useCartStore } from "./stores/useCartStore";
 
 const productStore = useProductStore();
 const cartStore = useCartStore();
-const { products } = storeToRefs(productStore);
+productStore.fill();
+const { productRef } = storeToRefs(productStore);
 
 </script>
 
@@ -17,10 +18,10 @@ const { products } = storeToRefs(productStore);
     <TheHeader />
     <ul class="sm:flex flex-wrap lg:flex-nowrap gap-5">
       <ProductCard
-        v-for="product in productStore.products"
+        v-for="product in productRef"
         :key="product.name"
         :product="product"
-        @addToCart="cartStore.items.push({product})"
+        @addToCart="cartStore.addToCart($event, product)"
       />
     </ul>
   </div>
