@@ -15,6 +15,10 @@ export const useCartStore = defineStore('CartStore', () => {
 
     const grouped = computed(()=> groupBy(items.value,(item)=> item.name))
 
+    const total = computed(() => {
+        return items.value.reduce((acc, item) => acc + item.price, 0);
+    })
+
     //Actions
     function addToCart(contador, item) {
         contador = parseInt(contador)
