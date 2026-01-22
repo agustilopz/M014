@@ -1,0 +1,6 @@
+[
+  { "name": "Intel Core i9", "type": "CPU", "price": 500, "image": "cpu-i9.jpg" },
+  { "name": "AMD Ryzen 7", "type": "CPU", "price": 350, "image": "ryzen-7.jpg" },
+  { "name": "NVIDIA RTX 4080", "type": "GPU", "price": 1200, "image": "rtx4080.jpg" },
+  { "name": "Corsair 32GB RGB", "type": "RAM", "price": 150, "image": "ram-rgb.jpg" }
+]
