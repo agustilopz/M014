@@ -27,6 +27,6 @@ export const useBuildStore = defineStore('BuildStore', () => {
 
     const removeComponent = (itemName) => (items.value = items.value.filter(item => item.name !== itemName))
 
-    const checkout = () => {}
+    const checkout = (item, count) => {}
 
 })

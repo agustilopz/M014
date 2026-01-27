@@ -16,7 +16,9 @@ const count = ref(0);
     <div>Type: {{ hardware.type }}</div>
     <div>{{ hardware.name }} - <span>{{ hardware.price }}€</span></div>
 
-
+    <div>
+        <button @click="">Afegir al Muntatge</button>
+    </div>
 </li>
 
 </template>

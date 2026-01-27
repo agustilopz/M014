@@ -3,7 +3,7 @@ import ComponentCard from './components/ComponentCard.vue';
 import { storeToRefs } from 'pinia';
 import { useHardwareStore } from './stores/useHardwareStore';
 import { useBuildStore } from './stores/useBuildStore';
-
+import NavBar from './components/NavBar.vue';
 const hardwareStore = useHardwareStore();
 const buildStore = useBuildStore();
 hardwareStore.loadHardware();
@@ -14,6 +14,7 @@ const { hardwareRef } = storeToRefs(hardwareStore)
 
 <template>
 <div>
+<NavBar/>
   <ul>
     <ComponentCard
     v-for="hardware in hardwareRef"
