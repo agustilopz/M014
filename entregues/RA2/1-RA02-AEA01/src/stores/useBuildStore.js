@@ -1,9 +1,17 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
-export const useBuildStore = defineStore('BuildStore', () => {
+function groupBy(array, keyFn) {
+    return array.reduce((result, item) => {
+        const key = keyFn(item)
+        if (!result[key]) result[key] = []
+        result[key].push(item)
+        return result
+    }, {})
+}
 
-    //State
+export const useBuildStore = defineStore('BuildStore', () => {
+    // State
     const items = ref([])
 
     // Getters
@@ -13,7 +21,6 @@ export const useBuildStore = defineStore('BuildStore', () => {
         const sorted = Object.keys(grouped).sort()
         let inOrder = {}
         sorted.forEach((key)=> (inOrder[key] = grouped[key]))
-
         return inOrder
     })
     
@@ -25,8 +32,19 @@ export const useBuildStore = defineStore('BuildStore', () => {
         }
     }
 
-    const removeComponent = (itemName) => (items.value = items.value.filter(item => item.name !== itemName))
+function removeComponent(itemName) {
+    const idx = items.value.findIndex(item => item.name === itemName)
+    if (idx !== -1) items.value.splice(idx, 1)
+}
 
-    const checkout = (item, count) => {}
+    function checkout(item, count) {
+        // Actualitza la quantitat d'un component concret
+        const filtered = items.value.filter(i => i.name !== item.name)
+        for (let i = 0; i < count; i++) {
+            filtered.push(item)
+        }
+        items.value = filtered
+    }
 
+    return { items, totalPrice, groupedByType, addComponent, removeComponent, checkout }
 })
