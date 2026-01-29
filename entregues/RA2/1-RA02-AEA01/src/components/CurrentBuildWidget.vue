@@ -8,8 +8,8 @@ const buildStore = useBuildStore();
     <h2>Muntatge actual</h2>
     <div>Total: {{ buildStore.totalPrice }} €</div>
     <ul>
-      <li v-for="(items, name) in buildStore.groupedByType" :key="name">
-        <span>{{ name }} ({{ items.length }})</span>
+      <li v-for="(items, name) in buildStore.groupedByName" :key="name">
+      <span>{{ items[0].type }} - {{ name }} ({{ items.length }})</span>
         <button @click="buildStore.removeComponent(name)">🗑️</button>
       </li>
     </ul>
