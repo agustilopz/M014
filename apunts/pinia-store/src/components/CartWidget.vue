@@ -1,18 +1,26 @@
 <script setup>
+
 import { useCartStore } from "@/stores/useCartStore";
+
 const cartStore = useCartStore();
+
 </script>
 
 <template>
   <div class="current-build-widget">
-    <h2>Muntatge actual</h2>
-    <div>Total: {{ cartStore.totalPrice }} €</div>
-    <ul>
-      <li v-for="(items, name) in cartStore.groupedByName" :key="name">
-        <span>{{ items[0].type }} - {{ name }} ({{ items.length }})</span>
-        <button @click="cartStore.removeProduct(name)">🗑️</button>
-      </li>
-    </ul>
+    <h2>Cart Store</h2>
+    <div v-if="!cartStore.isEmpty">
+      <div>Total: {{ cartStore.totalPrice }} €</div>
+      <ul>
+        <li v-for="(items, name) in cartStore.groupedByName" :key="name">
+          <span>{{ items[0].type }} - {{ name }} ({{ items.length }})</span>
+          <button @click="cartStore.removeProduct(name)">🗑️</button>
+        </li>
+      </ul>
+      <button @click="cartStore.$reset">Clear Cart</button>
+    </div>
+    <div v-if="cartStore.isEmpty"><em>Cart is Empty</em></div>
+
   </div>
 </template>
 

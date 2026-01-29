@@ -1,20 +1,15 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
-
-function groupBy(array, keyFn) {
-    return array.reduce((result, item) => {
-        const key = keyFn(item)
-        if (!result[key]) result[key] = []
-        result[key].push(item)
-        return result
-    }, {})
-}
+import { groupBy } from 'lodash'
 
 export const useCartStore = defineStore('CartStore', () => {
+
     // State
     const items = ref([])
 
     // Getters
+    const count = computed(() => items.value.length)
+    const isEmpty = computed(() => count.value === 0)
     const totalPrice = computed(() => items.value.reduce((acumulador, elemento) => acumulador + elemento.price, 0))
     const groupedByName = computed(() => {
         const grouped = groupBy(items.value, (item) => item.name)
@@ -37,6 +32,10 @@ export const useCartStore = defineStore('CartStore', () => {
         if (idx !== -1) items.value.splice(idx, 1)
     }
 
+    function $reset() {
+        items.value = []
+    }
+
     function checkout(item, count) {
         // Actualitza la quantitat d'un component concret
         const filtered = items.value.filter(i => i.name !== item.name)
@@ -46,5 +45,5 @@ export const useCartStore = defineStore('CartStore', () => {
         items.value = filtered
     }
 
-    return { items, totalPrice, groupedByName, addProduct, removeProduct, checkout }
+    return { items, count, isEmpty, totalPrice, groupedByName, addProduct, removeProduct, checkout, $reset }
 })
