@@ -1,9 +1,12 @@
 <script setup lang="ts">
-const { loggedIn, user, session, fetch, clear, openInPopup } = useUserSession();
+import NavBar from './components/NavBar.vue';
 </script>
 
 <template>
-  <div>
-    {{ user }}
-  </div>
+<NavBar/>
 </template>
+
+<style>
+@import "tailwindcss";
+@import "@nuxt/ui";
+</style>
