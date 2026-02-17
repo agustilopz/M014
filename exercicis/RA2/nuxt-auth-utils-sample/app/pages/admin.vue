@@ -1,9 +1,13 @@
 <script setup lang="ts">
 
 definePageMeta({middleware:["auth"]});
-const {data} = useFetch("/api/admin");
+const {data} = useFetch("/api/admin", {
+    lazy: true
+});
 </script>
 
 <template>
-{{data?.sensitive}}
+    <div v-if="data">
+    {{data?.sensitive}}
+    </div>
 </template>
