@@ -1,5 +1,6 @@
 import { eq } from 'drizzle-orm'
 import * as schema from "../../db/schema";
+
 import { registerUser, throwIfUserExists } from '~~/server/utils/registerUtils';
 export default defineEventHandler(async (event) => {
     // 1. Accedeixo als camps del formulari

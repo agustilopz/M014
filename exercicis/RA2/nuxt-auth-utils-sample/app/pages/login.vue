@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import * as z from 'zod'
+import { FetchError } from 'ofetch'
+
 import type { FormSubmitEvent } from '@nuxt/ui'
-const {  loggedIn, openInPopup } = useUserSession();
+const {  loggedIn, openInPopup, fetch } = useUserSession();
 const schema = z.object({
     email: z.string().email('Invalid email'),
     password: z.string().min(8, 'Must be at least 8 characters')
@@ -16,8 +18,21 @@ const state = reactive<Partial<Schema>>({
 
 const toast = useToast()
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-    toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
-    console.log(event.data)
+console.log(event.data)
+    try {
+        await $fetch('/auth/login', {
+            method: 'POST',
+            body: event.data
+        })
+        fetch() // Refresh session data after registration
+        toast.add({ title: 'Success', description: 'Benvingut. Has entrat amb èxit.', color: 'success' })
+    } catch (error) {
+        if (error instanceof FetchError) {
+            toast.add({ title: 'Error', description: error.data.message, color: 'error' })
+        } else {
+            toast.add({ title: 'Error', description: 'An unexpected error occurred.', color: 'error' })
+        }
+    }
 }
 watch(loggedIn, () => {
     if (loggedIn.value) {

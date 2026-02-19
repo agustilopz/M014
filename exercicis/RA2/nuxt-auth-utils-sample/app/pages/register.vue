@@ -25,8 +25,14 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
             method: 'POST',
             body: event.data
         })
+        fetch() // Refresh session data after registration
         toast.add({ title: 'Success', description: 'The form has been submitted.', color: 'success' })
     } catch (error) {
+        if (error instanceof FetchError) {
+            toast.add({ title: 'Error', description: error.data.message, color: 'error' })
+        } else {
+            toast.add({ title: 'Error', description: 'An unexpected error occurred.', color: 'error' })
+        }
     }
 }
 
