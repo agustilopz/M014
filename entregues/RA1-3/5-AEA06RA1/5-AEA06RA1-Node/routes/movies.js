@@ -55,6 +55,8 @@ router.post('/', (req, res) => {
         runtime: parseInt(runtime),
         poster_path
     };
+
+    console.log('New movie data:', newMovie); // Debug log
     data.movies.push(newMovie);
     writeData(data);
     res.status(201).json({ movie: newMovie });

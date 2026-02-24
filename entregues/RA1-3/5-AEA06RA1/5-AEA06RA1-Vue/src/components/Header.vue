@@ -1,6 +1,7 @@
 <template>
   <header class="main-header">
     <nav>
+      <RouterLink to="/">Home</RouterLink>
       <RouterLink v-if="!auth.isAuthenticated" to="/login">Login</RouterLink>
       <RouterLink v-if="!auth.isAuthenticated" to="/register">Register</RouterLink>
       <button v-if="auth.isAuthenticated" @click="logout">Logout</button>
