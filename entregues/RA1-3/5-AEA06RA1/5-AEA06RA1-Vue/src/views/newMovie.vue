@@ -7,24 +7,24 @@
     <main>
       <form @submit.prevent="createMovie">
         <label for="title">Títol:</label>
-        <input type="text" id="title"  required /><br>
+        <input type="text" id="title" v-model="movie.title" required /><br>
 
         <label for="year">Any:</label>
-        <input type="number" id="year"  required /><br>
+        <input type="number" id="year" v-model="movie.year" required /><br>
 
         <label for="country">País:</label>
-        <input type="text" id="country"  required /><br>
+        <input type="text" id="country" v-model="movie.country" required /><br>
 
         <label for="director">Director:</label>
-        <input type="text" id="director"  required /><br>
+        <input type="text" id="director" v-model="movie.director" required /><br>
 
         <label for="runtime">Durada (minuts):</label>
-        <input type="number" id="runtime" required /><br>
+        <input type="number" id="runtime" v-model="movie.runtime" required /><br>
 
         <label for="poster_path">Poster URL:</label>
-        <input type="url" id="poster_path"  required /> <br>
+        <input type="url" id="poster_path" v-model="movie.poster_path" required /> <br>
 
-        <button @click="createMovie" type="submit">Desar Canvis</button>
+        <button type="submit">Desar Canvis</button>
       </form>
     </main>
   </div>
@@ -33,9 +33,8 @@
 <script setup>
 
 import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
-const route = useRoute()
 const router = useRouter()
 const movie = ref({
   title: '',

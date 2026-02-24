@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { auth, setAuth } from '../auth.js'
 
 
 const router = createRouter({
@@ -43,6 +44,32 @@ const router = createRouter({
 
 
     ],
+})
+
+// Guard global per protegir rutes i restaurar la sessió amb el JWT de la cookie
+router.beforeEach(async (to, from, next) => {
+    const publicPaths = ['/login', '/register']
+    const isPublic = publicPaths.includes(to.path)
+
+    if (auth.isAuthenticated || isPublic) {
+        return next()
+    }
+
+    // Intentem recuperar la sessió a partir del backend (/me)
+    try {
+        const res = await fetch('http://localhost:3000/me', {
+            credentials: 'include'
+        })
+        if (res.ok) {
+            const data = await res.json()
+            setAuth(data.user)
+            return next()
+        }
+    } catch (e) {
+        // ignorem errors de xarxa i continuem cap al login
+    }
+
+    return next('/login')
 })
 
 export default router

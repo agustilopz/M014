@@ -1,15 +1,16 @@
 import express from 'express';
 import movieRoutes from './routes/movies.js';
 import methodOverride from 'method-override';
-import {PORT, SECRET_JWT_KEY} from './config.js'
+import { PORT, SECRET_JWT_KEY } from './config.js';
 import { UserRepository } from './user-repository.js';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { requireAuth } from './middleware/auth.js';
 
 const app = express();
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(express.static("public")); // Càrrega CSS i altres fitxers públics
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
@@ -41,6 +42,11 @@ app.set('views', './views'); // Ubicació de les plantilles
 // })
 
 app.use('/movies', movieRoutes);
+
+// Endpoint per comprovar l'usuari autenticat a partir del JWT
+app.get('/me', requireAuth, (req, res) => {
+  res.json({ user: req.user });
+});
 
 
 app.get('/',(req,res)=>{

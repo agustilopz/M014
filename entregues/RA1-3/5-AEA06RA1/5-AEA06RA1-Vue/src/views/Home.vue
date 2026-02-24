@@ -3,7 +3,8 @@ import { ref } from 'vue';
 import { useFetch } from '../composables/useFetch.js';
 import MovieCard from '../components/MovieCard.vue';
 import { RouterLink, RouterView, useRouter } from 'vue-router';
-import { auth } from '../auth.js';
+import { auth, setAuth } from '../auth.js';
+import { onMounted } from 'vue';
 
 
 const url = ref(`http://localhost:3000/movies`);
@@ -21,9 +22,24 @@ function deleteMovie(id) {
 
 const router = useRouter();
 
-if (!auth.isAuthenticated) {
-  router.replace('/login');
-}
+// En muntar, intentem validar la sessió amb el backend si encara no la tenim
+onMounted(async () => {
+  if (!auth.isAuthenticated) {
+    try {
+      const res = await fetch('http://localhost:3000/me', {
+        credentials: 'include'
+      })
+      if (res.ok) {
+        const me = await res.json()
+        setAuth(me.user)
+      } else {
+        router.replace('/login')
+      }
+    } catch (e) {
+      router.replace('/login')
+    }
+  }
+});
 
 </script>
 

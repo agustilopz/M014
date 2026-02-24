@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { auth } from '../auth.js'
+import { auth, clearAuth } from '../auth.js'
 import { useRouter, RouterLink } from 'vue-router'
 import { computed } from 'vue'
 
@@ -22,8 +22,7 @@ function logout() {
     method: 'POST',
     credentials: 'include'
   })
-  auth.isAuthenticated = false
-  auth.user = null
+  clearAuth()
   router.push('/login')
 }
 </script>

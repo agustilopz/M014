@@ -12,8 +12,10 @@ export function useFetch(url) {
         error.value = null;
         
         try {
-            // Fer petició GET a la URL i esperar resposta
-            const res = await fetch(url.value);
+            // Fer petició GET a la URL i esperar resposta (incloent cookies per al JWT)
+            const res = await fetch(url.value, {
+                credentials: 'include'
+            });
             
             // Verificar si la resposta és correcta (status 200-299)
             // Si no, llancar error amb el codi de status

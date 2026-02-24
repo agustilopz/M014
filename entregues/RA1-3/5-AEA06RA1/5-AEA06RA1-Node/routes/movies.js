@@ -5,8 +5,8 @@ import { requireAuth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-// Protegeix totes les rutes d'aquest fitxer
-//router.use(requireAuth);
+// Protegeix totes les rutes d'aquest fitxer amb JWT
+router.use(requireAuth);
 
 
 // Read/write JSON file

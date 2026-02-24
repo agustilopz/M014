@@ -19,7 +19,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { auth } from '../auth.js'
+import { setAuth } from '../auth.js'
 
 const username = ref('')
 const password = ref('')
@@ -40,8 +40,8 @@ async function handleLogin() {
       throw new Error(msg)
     }
     const data = await res.json()
-    auth.isAuthenticated = true
-    auth.user = data.user
+    // Guardem l'usuari autenticat a l'estat global
+    setAuth(data.user)
     router.push('/')
     console.log('Login successful!')
   } catch (e) {
