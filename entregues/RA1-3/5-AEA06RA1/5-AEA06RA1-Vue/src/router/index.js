@@ -22,10 +22,21 @@ const router = createRouter({
             path: '/newMovie',
             name: 'newMovie',
             component: () => import('../views/newMovie.vue'),
+        },
+
+        {
+            path: '/login',
+            name: 'login',
+            component: () => import('../views/Login.vue'),
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: () => import('../views/Register.vue'),
         }
 
 
     ],
 })
 
-export default router  
+export default router
