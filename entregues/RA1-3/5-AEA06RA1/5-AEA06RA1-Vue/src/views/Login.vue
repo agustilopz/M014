@@ -19,6 +19,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { auth } from '../auth.js'
 
 const username = ref('')
 const password = ref('')
@@ -38,8 +39,11 @@ async function handleLogin() {
       const msg = await res.text()
       throw new Error(msg)
     }
-    // Redirigeix a la home o pàgina protegida
+    const data = await res.json()
+    auth.isAuthenticated = true
+    auth.user = data.user
     router.push('/')
+    console.log('Login successful!')
   } catch (e) {
     error.value = e.message || 'Error d\'autenticació'
   }

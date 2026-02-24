@@ -1,17 +1,12 @@
 <script setup>
 import { ref } from 'vue';
-import { RouterLink, RouterView } from 'vue-router';
-
+import { RouterView } from 'vue-router';
+import Header from './components/Header.vue'
 </script>
 
 <template>
-  <nav>
-    <RouterLink to="/">Inici</RouterLink>
-    <RouterLink to="/login">Login</RouterLink>
-    <RouterLink to="/register">Registre</RouterLink>
-  </nav>
+  <Header />
   <RouterView />
-
 </template>
 
 <style scoped>

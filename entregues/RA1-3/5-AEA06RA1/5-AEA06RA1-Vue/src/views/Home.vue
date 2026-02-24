@@ -2,7 +2,8 @@
 import { ref } from 'vue';
 import { useFetch } from '../composables/useFetch.js';
 import MovieCard from '../components/MovieCard.vue';
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterLink, RouterView, useRouter } from 'vue-router';
+import { auth } from '../auth.js';
 
 
 const url = ref(`http://localhost:3000/movies`);
@@ -16,6 +17,12 @@ function deleteMovie(id) {
   }).then(() => {
     fetchData();
   });
+}
+
+const router = useRouter();
+
+if (!auth.isAuthenticated) {
+  router.replace('/login');
 }
 
 </script>
