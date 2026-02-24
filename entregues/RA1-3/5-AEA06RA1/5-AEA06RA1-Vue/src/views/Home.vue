@@ -37,4 +37,37 @@ function deleteMovie(id) {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+button, .router-link {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+button:hover, .router-link:hover {
+  background: #e65100;
+}
+
+/* MovieCard pot tenir el seu propi estil, però aquí afegim padding general */
+.grid > div {
+  padding: 0.5rem;
+}
+</style>
