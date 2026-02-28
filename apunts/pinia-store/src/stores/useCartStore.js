@@ -11,12 +11,16 @@ export const useCartStore = defineStore('CartStore', () => {
     const count = computed(() => items.value.length)
     const isEmpty = computed(() => count.value === 0)
     const totalPrice = computed(() => items.value.reduce((acumulador, elemento) => acumulador + elemento.price, 0))
-    const groupedByName = computed(() => {
-        const grouped = groupBy(items.value, (item) => item.name)
-        const sorted = Object.keys(grouped).sort()
-        let inOrder = {}
-        sorted.forEach((key) => (inOrder[key] = grouped[key]))
-        return inOrder
+    const groupedByType = computed(() => {
+        const byType = groupBy(items.value, (item) => item.type)
+        const result = {}
+        Object.keys(byType).sort().forEach((type) => {
+            const byName = groupBy(byType[type], (item) => item.name)
+            const sorted = Object.keys(byName).sort()
+            result[type] = {}
+            sorted.forEach((key) => (result[type][key] = byName[key]))
+        })
+        return result
     })
 
     // Actions
@@ -28,8 +32,7 @@ export const useCartStore = defineStore('CartStore', () => {
     }
 
     function removeProduct(itemName) {
-        const idx = items.value.findIndex(item => item.name === itemName)
-        if (idx !== -1) items.value.splice(idx, 1)
+        items.value = items.value.filter(item => item.name !== itemName)
     }
 
     function $reset() {
@@ -45,5 +48,5 @@ export const useCartStore = defineStore('CartStore', () => {
         items.value = filtered
     }
 
-    return { items, count, isEmpty, totalPrice, groupedByName, addProduct, removeProduct, checkout, $reset }
+    return { items, count, isEmpty, totalPrice, groupedByType, addProduct, removeProduct, checkout, $reset }
 })

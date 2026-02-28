@@ -12,10 +12,14 @@ const cartStore = useCartStore();
     <div v-if="!cartStore.isEmpty">
       <div>Total: {{ cartStore.totalPrice }} €</div>
       <ul>
-        <li v-for="(items, name) in cartStore.groupedByName" :key="name">
-          <span>{{ items[0].type }} - {{ name }} ({{ items.length }})</span>
-          <button @click="cartStore.removeProduct(name)">🗑️</button>
-        </li>
+        <template v-for="(productsByName, type) in cartStore.groupedByType" :key="type">
+          <li>-{{ type }}-</li>
+          <li v-for="(items, name) in productsByName" :key="`${type}-${name}`">
+            <span>{{ name }} ({{ items.length }})</span>
+            <span>{{ items.length * items[0].price }} €</span>
+            <button @click="cartStore.removeProduct(name)">🗑️</button>
+          </li>
+        </template>
       </ul>
       <button @click="cartStore.$reset">Clear Cart</button>
     </div>
