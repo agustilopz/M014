@@ -14,25 +14,3 @@ const userSession = useUserSessionStore();
     <CartWidget />
   </header>
 </template>
-
-<style scoped>
-.user-bar {
-  display: flex;
-  align-items: center;
-  gap: 1em;
-  margin-bottom: 0.5em;
-}
-
-.user-bar button {
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.3em 0.8em;
-  cursor: pointer;
-}
-
-.user-bar button:hover {
-  background: #444;
-}
-</style>

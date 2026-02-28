@@ -8,7 +8,10 @@ const cartStore = useCartStore();
 
 <template>
   <div class="current-build-widget">
-    <h2>Cart Store</h2>
+    <div class="cart-header">
+      <h2>Cart Store</h2>
+      <span>{{ cartStore.count }}</span>
+    </div>
     <div v-if="!cartStore.isEmpty">
       <div>Total: {{ cartStore.totalPrice }} €</div>
       <ul>
@@ -29,23 +32,5 @@ const cartStore = useCartStore();
 </template>
 
 <style scoped>
-.current-build-widget {
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-radius: 8px;
-}
 
-.current-build-widget ul {
-  list-style: none;
-  padding: 0;
-}
-
-.current-build-widget li {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.5em;
-}
 </style>
