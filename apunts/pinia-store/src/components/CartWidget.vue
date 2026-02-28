@@ -1,9 +1,8 @@
 <script setup>
-
 import { useCartStore } from "@/stores/useCartStore";
+import CartItem from "./CartItem.vue";
 
 const cartStore = useCartStore();
-
 </script>
 
 <template>
@@ -17,20 +16,21 @@ const cartStore = useCartStore();
       <ul>
         <template v-for="(productsByName, type) in cartStore.groupedByType" :key="type">
           <li>-{{ type }}-</li>
-          <li v-for="(items, name) in productsByName" :key="`${type}-${name}`">
-            <span>{{ name }} ({{ items.length }})</span>
-            <span>{{ items.length * items[0].price }} €</span>
-            <button @click="cartStore.removeProduct(name)">🗑️</button>
-          </li>
+          <CartItem
+            v-for="(items, name) in productsByName"
+            :key="`${type}-${name}`"
+            :name="name"
+            :count="items.length"
+            :unit-price="items[0].price"
+            @clear="cartStore.removeProduct(name)"
+          />
         </template>
       </ul>
       <button @click="cartStore.$reset">Clear Cart</button>
     </div>
     <div v-if="cartStore.isEmpty"><em>Cart is Empty</em></div>
-
   </div>
 </template>
 
 <style scoped>
-
 </style>
