@@ -49,10 +49,10 @@ app.get('/me', requireAuth, (req, res) => {
 });
 
 
-app.get('/',(req,res)=>{
-    const {user}=req.session
-    res.render('login',user)
-});   
+app.get('/', (req, res) => {
+    // Pàgina de login, sense necessitat de sessió
+    res.render('login', { user: null });
+});
 app.post('/login', async (req,res)=>{
     try{
         const {username,password}=req.body
@@ -93,15 +93,14 @@ app.post('/logout',(req,res)=>{
     .json({message:'logout successfull'})
     .send('logout');
 });
-app.get('/protected2',(req,res)=>{
-    const {user}=req.session
-    if (!user) return res.status(403).send('acceso no autorizado')
-    res.render('protected2',{user})
+app.get('/protected2', requireAuth, (req, res) => {
+    const user = req.user;
+    res.render('protected2', { user });
 });
-app.get('/protected',(req,res)=>{
-    const {user}=req.session
-    if (!user) return res.status(403).send('acceso no autorizado')
-    res.render('home',{user})
+
+app.get('/protected', requireAuth, (req, res) => {
+    const user = req.user;
+    res.render('home', { user });
 });
 app.listen(PORT,()=>{
     console.log(`Server running on http://localhost:${PORT}`);
