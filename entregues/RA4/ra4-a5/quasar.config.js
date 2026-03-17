@@ -224,5 +224,8 @@ export default defineConfig((ctx) => {
        */
       extraScripts: [],
     },
+    bin: {
+      linuxAndroidStudio: '/dades/Agusti/DAW2/M14/android-studio/bin/studio.sh',
+    }
   }
 })
