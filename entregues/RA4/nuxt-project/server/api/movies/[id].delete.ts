@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     .where(
       and(
         eq(schema.movies.id, id),
-        eq(schema.movies.userId, session.user.id),
+        eq(schema.movies.userId, Number(session.user.id)),
       ),
     )
     .returning();

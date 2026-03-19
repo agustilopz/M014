@@ -93,7 +93,7 @@ export default defineEventHandler(async (event) => {
   const db = useDb();
 
   const existing = await db.query.movies.findMany({
-    where: eq(schema.movies.userId, session.user.id),
+    where: eq(schema.movies.userId, Number(session.user.id)),
     limit: 1,
   });
 
@@ -111,7 +111,7 @@ export default defineEventHandler(async (event) => {
     director: movie.director,
     runtime: movie.runtime,
     posterUrl: movie.posterUrl ?? null,
-    userId: session.user.id,
+    userId: Number(session.user.id),
   }));
 
   const inserted = await db.insert(schema.movies).values(values).returning();

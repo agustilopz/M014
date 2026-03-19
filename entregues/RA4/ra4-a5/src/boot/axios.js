@@ -1,13 +1,21 @@
 import { defineBoot } from '#q-app/wrappers'
 import axios from 'axios'
 
-// Be careful when using SSR for cross-request state pollution
-// due to creating a Singleton instance here;
-// If any client changes this (global) instance, it might be a
-// good idea to move this instance creation inside of the
-// "export default () => {}" function below (which runs individually
-// for each client)
-const api = axios.create({ baseURL: 'https://api.example.com' })
+// Determine API base URL:
+// - If API_BASE_URL env var provided (useful for build/dev), use it
+// - If running on Android emulator, use 10.0.2.2
+// - Otherwise default to localhost:3000
+function getBaseURL () {
+  if (process.env.API_BASE_URL) {
+    return process.env.API_BASE_URL
+  }
+  if (typeof window !== 'undefined' && /Android/i.test(navigator.userAgent)) {
+    return 'http://10.0.2.2:3000'
+  }
+  return 'http://localhost:3000'
+}
+
+const api = axios.create({ baseURL: getBaseURL(), withCredentials: true })
 
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api

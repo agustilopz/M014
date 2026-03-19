@@ -6,6 +6,7 @@ import {
   createWebHashHistory,
 } from 'vue-router'
 import routes from './routes'
+import { api } from 'boot/axios'
 
 /*
  * If not building with SSR mode, you can
@@ -31,6 +32,21 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
+  })
+
+  // Global guard for routes that require auth
+  Router.beforeEach(async (to) => {
+    if (to.meta && to.meta.requiresAuth) {
+      try {
+        await api.get('/auth/me')
+        return true
+      } catch (err) {
+        console.log('Auth check failed:', err);
+        return { path: '/login' }
+        
+      }
+    }
+    return true
   })
 
   return Router

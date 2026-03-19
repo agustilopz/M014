@@ -8,17 +8,19 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const payload = movieSchema.parse(body);
 
+  const values = {
+    title: payload.title,
+    year: Number(payload.year),
+    country: payload.country,
+    director: payload.director,
+    runtime: Number(payload.runtime),
+    posterUrl: payload.posterUrl || null,
+    userId: Number(session.user.id),
+  };
+
   const [inserted] = await db
     .insert(schema.movies)
-    .values({
-      title: payload.title,
-      year: payload.year,
-      country: payload.country,
-      director: payload.director,
-      runtime: payload.runtime,
-      posterUrl: payload.posterUrl || null,
-      userId: session.user.id,
-    })
+    .values(values)
     .returning();
 
   return inserted;

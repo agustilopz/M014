@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const db = useDb();
 
   const movies = await db.query.movies.findMany({
-    where: eq(schema.movies.userId, session.user.id),
+    where: eq(schema.movies.userId, Number(session.user.id)),
     orderBy: (movies, { desc }) => desc(movies.id),
   });
 
