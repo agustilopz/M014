@@ -24,8 +24,10 @@
 import { ref, reactive } from 'vue'
 import { useQuasar } from 'quasar'
 import { api } from 'boot/axios'
+import { useRouter } from 'vue-router'
 
 const $q = useQuasar()
+const router = useRouter()
 const formRef = ref(null)
 const form = reactive({ name: '', email: '', password: '' })
 
@@ -34,6 +36,8 @@ async function onSubmit () {
     await api.post('/auth/register', { ...form }, { withCredentials: true })
     $q.notify({ type: 'positive', message: 'Registered successfully' })
     // you might want to redirect or fetch session
+    // consider redirecting to movies after register
+    router.push('/movies')
   } catch (err) {
     const msg = err?.response?.data?.message || 'Error registering'
     $q.notify({ type: 'negative', message: msg })

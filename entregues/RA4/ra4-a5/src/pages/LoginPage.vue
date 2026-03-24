@@ -41,7 +41,7 @@ async function onSubmit () {
     await api.post('/auth/login', { email: form.email, password: form.password }, { withCredentials: true })
     await fetch()
     $q.notify({ type: 'positive', message: 'Logged in successfully' })
-    router.push('/admin')
+    router.push('/movies')
   } catch (err) {
     const msg = err?.response?.data?.message || 'Error logging in'
     $q.notify({ type: 'negative', message: msg })

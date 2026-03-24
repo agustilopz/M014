@@ -21,7 +21,7 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/admin">
+        <q-item clickable v-ripple to="/movies">
           <q-item-section>
             <q-item-label>Movies</q-item-label>
           </q-item-section>
