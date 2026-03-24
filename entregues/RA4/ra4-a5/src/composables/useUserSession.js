@@ -8,7 +8,8 @@ export function useUserSession () {
   async function fetch () {
     try {
       const res = await api.get('/auth/me')
-      user.value = res.data?.user ?? res.data ?? null
+      // Only use res.data.user; do not treat session metadata as a user object
+      user.value = res.data?.user ?? null
       loggedIn.value = !!user.value
     } catch (err) {
       // network or auth error — clear session
