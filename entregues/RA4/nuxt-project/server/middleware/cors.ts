@@ -24,4 +24,5 @@ export default defineEventHandler((event) => {
     res.end()
     return
   }
+  
 })
