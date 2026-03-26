@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+import { signJwt } from '../../utils/jwt'
 export default defineEventHandler(async (event) => {
   const { email, password } = await readBody(event);
 
@@ -40,5 +41,8 @@ export default defineEventHandler(async (event) => {
   await setUserSession(event, {
     user: userWithoutPassword,
   });
-  return userWithoutPassword;
+
+  // Always return a JWT token as alternative to cookie-based session
+  const token = signJwt({ user: userWithoutPassword })
+  return { user: userWithoutPassword, token }
 });

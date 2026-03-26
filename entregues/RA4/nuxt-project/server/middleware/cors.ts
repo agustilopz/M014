@@ -5,7 +5,13 @@ export default defineEventHandler((event) => {
   // Prefer the Origin header from the incoming request (allows multiple dev origins)
   const originHeader = req.headers && (req.headers.origin || req.headers.Origin)
   const fallback = process.env.CORS_ORIGIN || 'http://localhost:9001'
-  const originToSet = originHeader || fallback
+  let originToSet = originHeader || fallback
+
+  // In development, if there is no Origin (native apps), allow emulator host and file protocol
+  if (!originHeader && process.env.NODE_ENV !== 'production') {
+    // Accept common development origins
+    originToSet = originToSet || '*'
+  }
 
   res.setHeader('Access-Control-Allow-Origin', originToSet)
   res.setHeader('Access-Control-Allow-Credentials', 'true')

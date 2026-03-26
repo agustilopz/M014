@@ -17,6 +17,14 @@ function getBaseURL () {
 
 const api = axios.create({ baseURL: getBaseURL(), withCredentials: true })
 
+// If client wants to use JWT instead of cookies, allow setting a token in localStorage
+if (typeof window !== 'undefined' && process.env.API_CLIENT_JWT === '1') {
+  const token = localStorage.getItem('api_jwt')
+  if (token) {
+    api.defaults.headers.common.Authorization = `Bearer ${token}`
+  }
+}
+
 export default defineBoot(({ app }) => {
   // for use inside Vue files (Options API) through this.$axios and this.$api
 

@@ -19,8 +19,24 @@ export function useUserSession () {
     }
   }
 
+  async function login (credentials) {
+    const res = await api.post('/auth/login', credentials, { withCredentials: true })
+    // Persist JWT token if returned
+    if (res.data?.token && typeof window !== 'undefined') {
+      localStorage.setItem('api_jwt', res.data.token)
+      api.defaults.headers.common.Authorization = `Bearer ${res.data.token}`
+    }
+    await fetch()
+    return res.data
+  }
+
   async function logoutBackend () {
     try {
+      // clear token client-side if used
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem('api_jwt')
+        delete api.defaults.headers.common.Authorization
+      }
       await api.post('/auth/logout')
     } catch (e) {
       console.warn('logoutBackend error:', e)
@@ -49,7 +65,13 @@ export function useUserSession () {
   }
 
   // Immediately try to fetch session on composable init
+  // try to load token from localStorage and set Authorization
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('api_jwt')
+    if (token) api.defaults.headers.common.Authorization = `Bearer ${token}`
+  }
+
   fetch()
 
-  return { user, loggedIn, fetch, clear: logoutBackend, openInPopup }
+  return { user, loggedIn, fetch, clear: logoutBackend, openInPopup, login }
 }
