@@ -9,7 +9,7 @@ const demoMovies: MoviePayload[] = [
     country: "USA",
     director: "Christopher Nolan",
     runtime: 148,
-    posterUrl: "https://storage.googleapis.com/pod_public/1300/263129.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/rWDkbJlIyqN8KcqXajh9sZMwGzo.jpg",
   },
   {
     title: "Parasite",
@@ -17,7 +17,7 @@ const demoMovies: MoviePayload[] = [
     country: "South Korea",
     director: "Bong Joon-ho",
     runtime: 132,
-    posterUrl: "https://m.media-amazon.com/images/I/71c05lTE03L._AC_SY679_.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/qhs3Kfym23ZApyvBjwVRr7TMnwQ.jpg",
   },
   {
     title: "Amélie",
@@ -34,7 +34,7 @@ const demoMovies: MoviePayload[] = [
     country: "Japan",
     director: "Hayao Miyazaki",
     runtime: 125,
-    posterUrl: "https://i.ebayimg.com/images/g/Q7MAAOSwcYBkOTlu/s-l1200.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/7ZMrzMZUMBSoY8N94v51w9EJkS1.jpg",
   },
   {
     title: "The Godfather",
@@ -42,7 +42,7 @@ const demoMovies: MoviePayload[] = [
     country: "USA",
     director: "Francis Ford Coppola",
     runtime: 175,
-    posterUrl: "https://storage.googleapis.com/pod_public/1300/262788.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/AbgEQO2mneCSOc8CSnOMa8pBS8I.jpg",
   },
   {
     title: "The Dark Knight",
@@ -51,7 +51,7 @@ const demoMovies: MoviePayload[] = [
     director: "Christopher Nolan",
     runtime: 152,
     posterUrl:
-      "https://m.media-amazon.com/images/I/5151N2hUPiL._AC_UF894,1000_QL80_.jpg",
+      "https://image.tmdb.org/t/p/original/efMhrHXZ4cQgGelVomuhEN3Sk2p.jpg",
   },
   {
     title: "City of God",
@@ -59,7 +59,7 @@ const demoMovies: MoviePayload[] = [
     country: "Brazil",
     director: "Fernando Meirelles",
     runtime: 130,
-    posterUrl: "https://m.media-amazon.com/images/I/71HokI188fL.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/mJTyEOKEvJRVauiQN0O90dh2Z0W.jpg",
   },
   {
     title: "Pan's Labyrinth",
@@ -68,7 +68,7 @@ const demoMovies: MoviePayload[] = [
     director: "Guillermo del Toro",
     runtime: 118,
     posterUrl:
-      "https://m.media-amazon.com/images/I/71cosJR5uNL._AC_UF894,1000_QL80_.jpg",
+      "https://image.tmdb.org/t/p/original/9I9UtR0lKYrWjt1jzW6AVjORvCv.jpg",
   },
   {
     title: "The Shawshank Redemption",
@@ -76,7 +76,7 @@ const demoMovies: MoviePayload[] = [
     country: "USA",
     director: "Frank Darabont",
     runtime: 142,
-    posterUrl: "https://m.media-amazon.com/images/I/519NBNHX5BL._AC_.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/1bGBTCPC1lcvrNTluh1bgr1dd2F.jpg",
   },
   {
     title: "The Lord of the Rings: The Fellowship of the Ring ",
@@ -84,7 +84,7 @@ const demoMovies: MoviePayload[] = [
     country: "New Zealand",
     director: "Peter Jackson",
     runtime: 178,
-    posterUrl: "https://m.media-amazon.com/images/I/51Qvs9i5a%2BL._AC_.jpg",
+    posterUrl: "https://image.tmdb.org/t/p/original/ftrUMC7yFGTFUsG1JBbfuSKAkDH.jpg",
   },
 ];
 
