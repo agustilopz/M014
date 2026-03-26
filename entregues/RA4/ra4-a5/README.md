@@ -155,5 +155,4 @@ Opcions si hi ha problemes amb cookies http-only a entorns natius:
 - Afegir tests automatitzats o script per seed controlat.
 
 ---
-
-Si necessites que generi un PDF/versió curta per presentar-ho o un guió per la demo de 1 minut, puc generar-ho automàticament a partir d'aquest README.
+.
